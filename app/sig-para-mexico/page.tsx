@@ -1,76 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import localFont from "next/font/local";
+import {
+  AGENDA_DIARIA,
+  CIESAS_LOGO,
+  ESTRUCTURA,
+  ORGANIZADORES,
+  REGISTRO_URL,
+  SESIONES,
+} from "./config";
 import styles from "./seminario.module.css";
-
-// ── Datos editables del seminario ────────────────────────────────────────────
-// Cambia estos valores cuando tengas la información definitiva.
-const ORGANIZADORES = ["Mtro. Sergio López Olvera", "Dr. Juan Carlos Olivo Escudero"];
-const REGISTRO_URL = "#registro"; // pon aquí el enlace al formulario de registro
-const CIESAS_LOGO = ""; // ruta del logo en /public, p. ej. "/sig-para-mexico/ciesas-golfo.svg"
-const CONTACTO = "lopezolverasergio@gmail.com";
-
-const DIAS = [
-  { fecha: "Lunes 30 de noviembre", tema: "Agua y medio ambiente" },
-  { fecha: "Martes 1 de diciembre", tema: "Riesgos y territorio" },
-  { fecha: "Miércoles 2 de diciembre", tema: "Ciudades y servicios públicos" },
-];
-
-const AGENDA_DIARIA = [
-  { hora: "17:00", actividad: "Bienvenida y presentación del día" },
-  { hora: "17:10", actividad: "Ponencia y preguntas" },
-  { hora: "17:35", actividad: "Ponencia y preguntas" },
-  { hora: "18:00", actividad: "Ponencia y preguntas" },
-  { hora: "18:25", actividad: "Ponencia y preguntas" },
-  { hora: "18:50", actividad: "Preguntas generales y cierre" },
-];
-
-const ESTRUCTURA = [
-  {
-    parte: "Problema",
-    minutos: 5,
-    detalle: "Qué ocurre, a quién afecta, cómo lo afecta y dónde se presenta.",
-  },
-  {
-    parte: "Abordaje con SIG",
-    minutos: 7,
-    detalle: "Datos, técnicas, software y método empleados.",
-  },
-  {
-    parte: "Resultados",
-    minutos: 6,
-    detalle: "Mapas, modelos, propuestas y datos generados.",
-  },
-  {
-    parte: "Conclusiones",
-    minutos: 2,
-    detalle: "Qué puede hacer con esto una dependencia desde mañana.",
-  },
-];
-// ─────────────────────────────────────────────────────────────────────────────
-
-const archivo = localFont({
-  src: "../../node_modules/@fontsource-variable/archivo/files/archivo-latin-standard-normal.woff2",
-  variable: "--font-archivo",
-  weight: "100 900",
-  display: "swap",
-});
-
-const sourceSerif = localFont({
-  src: [
-    {
-      path: "../../node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2",
-      style: "normal",
-    },
-    {
-      path: "../../node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-italic.woff2",
-      style: "italic",
-    },
-  ],
-  variable: "--font-serif",
-  weight: "200 900",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "SIG para México · Seminario virtual de sistemas de información geográfica",
@@ -154,20 +91,7 @@ export default function SeminarioSIG() {
   const totalMinutos = ESTRUCTURA.reduce((s, e) => s + e.minutos, 0);
 
   return (
-    <div className={`${styles.pagina} ${archivo.variable} ${sourceSerif.variable}`} lang="es">
-      <header className={styles.barra}>
-        <Link href="/" className={styles.marca}>
-          Sergio López Olvera
-        </Link>
-        <nav className={styles.nav} aria-label="Secciones">
-          <a href="#programa">Programa</a>
-          <a href="#ponencias">Ponencias</a>
-          <a href="#libro">Libro</a>
-          <a href="#registro">Registro</a>
-        </nav>
-      </header>
-
-      <main>
+    <main>
         <section className={styles.portada}>
           <CurvasDeNivel />
           <span className={`${styles.coord} ${styles.coordArriba}`}>19°32′ N</span>
@@ -292,7 +216,7 @@ export default function SeminarioSIG() {
           </p>
 
           <div className={styles.dias}>
-            {DIAS.map((d) => (
+            {SESIONES.map((d) => (
               <article key={d.fecha} className={styles.dia}>
                 <p className={styles.fecha}>{d.fecha}</p>
                 <h3 className={styles.tema}>{d.tema}</h3>
@@ -379,16 +303,6 @@ export default function SeminarioSIG() {
           </p>
           <Registro grande />
         </section>
-      </main>
-
-      <footer className={styles.pie}>
-        <p>
-          Dudas:{" "}
-          <a href={`mailto:${CONTACTO}`} className={styles.enlace}>
-            {CONTACTO}
-          </a>
-        </p>
-      </footer>
-    </div>
+    </main>
   );
 }
