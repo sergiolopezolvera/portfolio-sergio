@@ -550,7 +550,7 @@
 }
 
 .logo,
-.logoGrande {
+.logoCompleto {
   flex: none;
   object-fit: contain;
 }
@@ -560,9 +560,16 @@
   height: 2.75rem;
 }
 
-.logoGrande {
-  width: 4.5rem;
-  height: 4.5rem;
+.logoCompleto {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  height: auto;
+}
+
+.conLogoApilado {
+  display: grid;
+  gap: 0.85rem;
 }
 
 .logoVacio {
