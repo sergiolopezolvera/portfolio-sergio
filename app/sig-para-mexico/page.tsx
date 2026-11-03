@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   AGENDA_DIARIA,
   CIESAS_LOGO,
+  CIESAS_LOGO_COMPLETO,
   ESTRUCTURA,
   ORGANIZADORES,
   REGISTRO_URL,
@@ -78,11 +79,18 @@ function Registro({ grande = false }: { grande?: boolean }) {
   );
 }
 
-function LogoCiesas({ grande = false }: { grande?: boolean }) {
-  const clase = grande ? styles.logoGrande : styles.logo;
-  if (CIESAS_LOGO) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={CIESAS_LOGO} alt="CIESAS Golfo" className={clase} />;
+function LogoCiesas({ completo = false }: { completo?: boolean }) {
+  const src = completo ? CIESAS_LOGO_COMPLETO : CIESAS_LOGO;
+  const clase = completo ? styles.logoCompleto : styles.logo;
+  if (src) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={src}
+        alt={completo ? "Secretaría de Ciencia, Humanidades, Tecnología e Innovación y CIESAS" : "CIESAS"}
+        className={clase}
+      />
+    );
   }
   return <span className={`${clase} ${styles.logoVacio}`} aria-hidden="true" />;
 }
@@ -286,8 +294,8 @@ export default function SeminarioSIG() {
             </div>
             <div>
               <dt>Aval académico y constancia</dt>
-              <dd className={styles.conLogo}>
-                <LogoCiesas grande />
+              <dd className={styles.conLogoApilado}>
+                <LogoCiesas completo />
                 <span>
                   Centro de Investigaciones y Estudios Superiores en Antropología Social,
                   Unidad Regional Golfo

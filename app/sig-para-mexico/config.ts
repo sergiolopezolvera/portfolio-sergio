@@ -2,7 +2,8 @@
 // Cambia estos valores cuando tengas la información definitiva.
 
 export const ORGANIZADORES = ["Mtro. Sergio López Olvera", "Dr. Juan Carlos Olivo Escudero"];
-export const CIESAS_LOGO = ""; // ruta del logo en /public, p. ej. "/sig-para-mexico/ciesas-golfo.svg"
+export const CIESAS_LOGO = "/sig-para-mexico/ciesas.png"; // emblema, en la portada
+export const CIESAS_LOGO_COMPLETO = "/sig-para-mexico/secihti-ciesas.png"; // Secihti + CIESAS, en Organizan
 export const CONTACTO = "lopezolverasergio@gmail.com";
 
 // URL de la aplicación web de Apps Script (termina en /exec). Ver
