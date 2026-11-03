@@ -10,11 +10,11 @@ import {
 import styles from "./seminario.module.css";
 
 export const metadata: Metadata = {
-  title: "SIG para México · Seminario virtual de sistemas de información geográfica",
+  title: "SIG para México: Herramientas para la gestión territorial: RSU, agua, riesgos, la ciudad y sus servicios públicos",
   description:
-    "Seminario virtual, del 30 de noviembre al 2 de diciembre de 2026, para servidores públicos y prestadores de servicios sobre cómo los sistemas de información geográfica ayudan a entender y resolver problemas públicos de México. Constancia digital de CIESAS Golfo.",
+    "Seminario virtual, del 30 de noviembre al 2 de diciembre de 2026, para servidores públicos y prestadores de servicios sobre herramientas SIG para la gestión territorial: residuos sólidos urbanos (RSU), agua, riesgos, la ciudad y sus servicios públicos. Constancia digital de CIESAS Golfo.",
   openGraph: {
-    title: "SIG para México",
+    title: "SIG para México: Herramientas para la gestión territorial: RSU, agua, riesgos, la ciudad y sus servicios públicos",
     description:
       "Seminario virtual para servidores públicos y prestadores de servicios. 30 de noviembre al 2 de diciembre de 2026, de 17:00 a 19:00 (Ciudad de México).",
     locale: "es_MX",
@@ -105,10 +105,15 @@ export default function SeminarioSIG() {
               SIG para
               <br />
               México
+              <span className={styles.subtitulo}>
+                Herramientas para la gestión territorial: RSU, agua, riesgos, la ciudad y sus
+                servicios públicos
+              </span>
             </h1>
             <p className={styles.bajada}>
               Tres sesiones para ver cómo los sistemas de información geográfica ayudan a
-              entender y resolver problemas públicos del país, sus regiones y sus ciudades.
+              gestionar residuos sólidos urbanos, agua, riesgos y servicios en municipios y
+              estados de México.
             </p>
 
             <dl className={styles.ficha}>
