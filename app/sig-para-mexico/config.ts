@@ -8,7 +8,7 @@ export const CONTACTO = "lopezolverasergio@gmail.com";
 // URL de la aplicación web de Apps Script (termina en /exec). Ver
 // scripts/sig-para-mexico/INSTRUCCIONES.md. Mientras esté vacía, los
 // formularios muestran un aviso en lugar de enviar.
-export const FORMULARIOS_URL = "";
+export const FORMULARIOS_URL = "https://script.google.com/macros/s/AKfycbyRpiaVpml0Lc5NaqwIRnlpd0x3pRtnaZf7vbn0Ne4vJ-IH72dtQ1kMDShjXxSlFaAG/exec";
 
 export const REGISTRO_URL = "/sig-para-mexico/registro";
 
