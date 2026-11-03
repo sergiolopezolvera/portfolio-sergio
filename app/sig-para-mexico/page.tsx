@@ -6,7 +6,8 @@ import styles from "./seminario.module.css";
 // ── Datos editables del seminario ────────────────────────────────────────────
 // Cambia estos valores cuando tengas la información definitiva.
 const ORGANIZADORES = ["Mtro. Sergio López Olvera", "Dr. Juan Carlos Olivo Escudero"];
-const REGISTRO_URL = ""; // enlace al formulario de registro; vacío = aún no abre
+const REGISTRO_URL = "#registro"; // pon aquí el enlace al formulario de registro
+const CIESAS_LOGO = ""; // ruta del logo en /public, p. ej. "/sig-para-mexico/ciesas-golfo.svg"
 const CONTACTO = "lopezolverasergio@gmail.com";
 
 const DIAS = [
@@ -72,13 +73,13 @@ const sourceSerif = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SIG para México · Seminario virtual para servidores públicos",
+  title: "SIG para México · Seminario virtual de sistemas de información geográfica",
   description:
-    "Seminario virtual, del 30 de noviembre al 2 de diciembre de 2026, sobre cómo los sistemas de información geográfica ayudan a entender y resolver problemas públicos de México. Con el aval académico de CIESAS Golfo.",
+    "Seminario virtual, del 30 de noviembre al 2 de diciembre de 2026, para servidores públicos y prestadores de servicios sobre cómo los sistemas de información geográfica ayudan a entender y resolver problemas públicos de México. Constancia digital de CIESAS Golfo.",
   openGraph: {
     title: "SIG para México",
     description:
-      "Seminario virtual para servidores públicos municipales y estatales. 30 de noviembre al 2 de diciembre de 2026, de 17:00 a 19:00 (Ciudad de México).",
+      "Seminario virtual para servidores públicos y prestadores de servicios. 30 de noviembre al 2 de diciembre de 2026, de 17:00 a 19:00 (Ciudad de México).",
     locale: "es_MX",
     type: "website",
   },
@@ -133,21 +134,20 @@ function CurvasDeNivel() {
 }
 
 function Registro({ grande = false }: { grande?: boolean }) {
-  if (REGISTRO_URL) {
-    return (
-      <a href={REGISTRO_URL} className={grande ? styles.botonGrande : styles.boton}>
-        Registrarme
-      </a>
-    );
-  }
   return (
-    <a
-      href={`mailto:${CONTACTO}?subject=${encodeURIComponent("Registro al seminario SIG para México")}`}
-      className={grande ? styles.botonGrande : styles.boton}
-    >
-      Avísenme cuando abra el registro
+    <a href={REGISTRO_URL} className={grande ? styles.botonGrande : styles.boton}>
+      Registrarme
     </a>
   );
+}
+
+function LogoCiesas({ grande = false }: { grande?: boolean }) {
+  const clase = grande ? styles.logoGrande : styles.logo;
+  if (CIESAS_LOGO) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={CIESAS_LOGO} alt="CIESAS Golfo" className={clase} />;
+  }
+  return <span className={`${clase} ${styles.logoVacio}`} aria-hidden="true" />;
 }
 
 export default function SeminarioSIG() {
@@ -174,7 +174,9 @@ export default function SeminarioSIG() {
           <span className={`${styles.coord} ${styles.coordAbajo}`}>96°55′ O</span>
 
           <div className={styles.portadaTexto}>
-            <p className={styles.antetitulo}>Seminario virtual para servidores públicos</p>
+            <p className={styles.antetitulo}>
+              Seminario virtual para servidores públicos y prestadores de servicios
+            </p>
             <h1 className={styles.titulo}>
               SIG para
               <br />
@@ -199,8 +201,11 @@ export default function SeminarioSIG() {
                 <dd>En línea</dd>
               </div>
               <div>
-                <dt>Aval académico</dt>
-                <dd>CIESAS Golfo</dd>
+                <dt>Constancia digital</dt>
+                <dd className={styles.conLogo}>
+                  <LogoCiesas />
+                  CIESAS Golfo
+                </dd>
               </div>
             </dl>
 
@@ -223,6 +228,11 @@ export default function SeminarioSIG() {
                 Para personal de ayuntamientos y dependencias estatales que trabaja con
                 agua, protección civil, desarrollo urbano, catastro, medio ambiente, salud o
                 servicios públicos, y quiere saber qué puede hacer con datos geográficos.
+              </p>
+              <p>
+                También para consultoras, despachos y profesionistas que prestan servicios
+                a gobiernos municipales y estatales: estudios, proyectos ejecutivos,
+                ordenamiento territorial o evaluaciones ambientales.
               </p>
               <p>
                 No necesitas experiencia previa en SIG. Cada ponencia parte de un problema
@@ -346,8 +356,14 @@ export default function SeminarioSIG() {
               ))}
             </div>
             <div>
-              <dt>Aval académico</dt>
-              <dd>Centro de Investigaciones y Estudios Superiores en Antropología Social, Unidad Regional Golfo</dd>
+              <dt>Aval académico y constancia</dt>
+              <dd className={styles.conLogo}>
+                <LogoCiesas grande />
+                <span>
+                  Centro de Investigaciones y Estudios Superiores en Antropología Social,
+                  Unidad Regional Golfo
+                </span>
+              </dd>
             </div>
           </dl>
         </section>
@@ -357,9 +373,9 @@ export default function SeminarioSIG() {
             Tres sesiones, doce casos
           </h2>
           <p className={styles.nota}>
-            {REGISTRO_URL
-              ? "El registro es en línea. Recibirás el enlace de conexión por correo antes de cada sesión."
-              : "El registro abrirá pronto. Escríbenos y te mandamos el enlace en cuanto esté listo."}
+            Regístrate en línea y recibirás por correo el enlace para conectarte a las
+            sesiones. Quienes asistan recibirán una constancia digital emitida por CIESAS
+            Golfo.
           </p>
           <Registro grande />
         </section>

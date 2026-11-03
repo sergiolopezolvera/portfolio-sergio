@@ -519,3 +519,33 @@
   font-size: 1rem;
   color: var(--tinta-suave);
 }
+
+/* ── Logo de CIESAS ─────────────────────────────────────────── */
+.conLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo,
+.logoGrande {
+  flex: none;
+  object-fit: contain;
+}
+
+.logo {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.logoGrande {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.logoVacio {
+  display: inline-block;
+  border: 1.5px dashed var(--tinta-suave);
+  border-radius: 3px;
+  opacity: 0.5;
+}
