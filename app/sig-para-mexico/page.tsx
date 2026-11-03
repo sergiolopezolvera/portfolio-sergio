@@ -5,7 +5,7 @@ import styles from "./seminario.module.css";
 
 // ── Datos editables del seminario ────────────────────────────────────────────
 // Cambia estos valores cuando tengas la información definitiva.
-const COORDINADOR_SEMINARIO = "Nombre del coordinador"; // tu amigo, coordinador del seminario
+const ORGANIZADORES = ["Mtro. Sergio López Olvera", "Dr. Juan Carlos Olivo Escudero"];
 const REGISTRO_URL = ""; // enlace al formulario de registro; vacío = aún no abre
 const CONTACTO = "lopezolverasergio@gmail.com";
 
@@ -181,7 +181,7 @@ export default function SeminarioSIG() {
               México
             </h1>
             <p className={styles.bajada}>
-              Tres tardes para ver cómo los sistemas de información geográfica ayudan a
+              Tres sesiones para ver cómo los sistemas de información geográfica ayudan a
               entender y resolver problemas públicos del país, sus regiones y sus ciudades.
             </p>
 
@@ -277,7 +277,7 @@ export default function SeminarioSIG() {
             Programa
           </h2>
           <p className={styles.nota}>
-            Cuatro ponencias por tarde. Los nombres de ponentes y títulos se publicarán
+            Cuatro ponencias por sesión. Los nombres de ponentes y títulos se publicarán
             aquí en cuanto estén confirmados.
           </p>
 
@@ -338,12 +338,12 @@ export default function SeminarioSIG() {
           </h2>
           <dl className={styles.creditos}>
             <div>
-              <dt>Coordinación del seminario</dt>
-              <dd>{COORDINADOR_SEMINARIO}</dd>
-            </div>
-            <div>
-              <dt>Coordinación del libro</dt>
-              <dd>Sergio López Olvera</dd>
+              <dt className={styles.oculto}>Organizadores</dt>
+              {ORGANIZADORES.map((nombre) => (
+                <dd key={nombre} className={styles.organizador}>
+                  {nombre}
+                </dd>
+              ))}
             </div>
             <div>
               <dt>Aval académico</dt>
@@ -354,7 +354,7 @@ export default function SeminarioSIG() {
 
         <section id="registro" className={`${styles.seccion} ${styles.cierre}`} aria-labelledby="registro-t">
           <h2 id="registro-t" className={styles.h2Cierre}>
-            Tres tardes, doce casos
+            Tres sesiones, doce casos
           </h2>
           <p className={styles.nota}>
             {REGISTRO_URL

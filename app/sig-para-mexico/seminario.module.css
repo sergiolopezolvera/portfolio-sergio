@@ -451,9 +451,28 @@
 
 .creditos {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem 4rem;
   margin: 2rem 0 0;
+}
+
+.creditos .organizador {
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.creditos .organizador + .organizador {
+  margin-top: 0.5rem;
+}
+
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 @media (max-width: 800px) {
