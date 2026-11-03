@@ -31,9 +31,19 @@ export default function SeminarioLayout({ children }: { children: ReactNode }) {
   return (
     <div className={`${styles.pagina} ${archivo.variable} ${sourceSerif.variable}`} lang="es">
       <header className={styles.barra}>
-        <Link href="/" className={styles.marca}>
-          Sergio López Olvera
-        </Link>
+        <div className={styles.marcas}>
+          <Link href="/" className={styles.marca}>
+            Sergio López Olvera
+          </Link>
+          <a
+            href="https://www.linkedin.com/in/juan-carlos-olivo-escudero-098717132/"
+            className={styles.marca}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Juan Carlos Olivo Escudero
+          </a>
+        </div>
         <nav className={styles.nav} aria-label="Secciones">
           <Link href="/sig-para-mexico#programa">Programa</Link>
           <Link href="/sig-para-mexico#ponencias">Ponencias</Link>

@@ -38,10 +38,20 @@
   font-size: 0.95rem;
 }
 
+.marcas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+}
+
 .marca {
   font-weight: 600;
   color: var(--tinta);
   text-decoration: none;
+}
+
+.marca:hover {
+  color: var(--agua);
 }
 
 .nav {
