@@ -6,19 +6,7 @@ import { SESIONES } from "../config";
 import { enviar } from "../_componentes/enviar";
 import styles from "../seminario.module.css";
 
-const MAX_MB = 25;
-const TIPOS = ".pdf,.ppt,.pptx,application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation";
-
 type Estado = "listo" | "enviando" | "hecho" | "error";
-
-function leerBase64(archivo: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const lector = new FileReader();
-    lector.onload = () => resolve(String(lector.result).split(",")[1] ?? "");
-    lector.onerror = () => reject(lector.error);
-    lector.readAsDataURL(archivo);
-  });
-}
 
 export default function FormularioPonencia() {
   const [estado, setEstado] = useState<Estado>("listo");
@@ -27,19 +15,6 @@ export default function FormularioPonencia() {
   async function alEnviar(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
-    const archivo = f.get("archivo");
-    let adjunto: { nombre: string; tipo: string; contenido: string } | null = null;
-
-    if (archivo instanceof File && archivo.size > 0) {
-      if (archivo.size > MAX_MB * 1024 * 1024) {
-        setEstado("error");
-        setMensaje(`El archivo pesa más de ${MAX_MB} MB. Expórtalo como PDF o comprime las imágenes.`);
-        return;
-      }
-      setEstado("enviando");
-      adjunto = { nombre: archivo.name, tipo: archivo.type, contenido: await leerBase64(archivo) };
-    }
-
     setEstado("enviando");
     const r = await enviar({
       tipo: "ponencia",
@@ -55,7 +30,6 @@ export default function FormularioPonencia() {
       tecnicas: f.get("tecnicas"),
       software: f.get("software"),
       datos: f.get("datos"),
-      archivo: adjunto,
       autoriza_publicar: f.get("autoriza_publicar") === "on",
       interes_libro: f.get("interes_libro") === "on",
       sitio_web: f.get("sitio_web"),
@@ -73,8 +47,8 @@ export default function FormularioPonencia() {
       <div className={styles.confirmacion} role="status">
         <h2 className={styles.h2}>Recibimos tu ponencia</h2>
         <p>
-          Gracias. Revisaremos la ficha y te escribiremos para el ensayo técnico. Si quieres
-          enviar una versión nueva de tus diapositivas, llena el formulario otra vez.
+          Gracias. Revisaremos la ficha y, una semana antes del seminario, te escribiremos
+          para pedirte las diapositivas y acordar el ensayo técnico.
         </p>
         <Link href="/sig-para-mexico" className={styles.enlace}>
           Ver el programa
@@ -153,17 +127,6 @@ export default function FormularioPonencia() {
             <input name="datos" required maxLength={300} placeholder="INEGI, CONAGUA, Sentinel-2…" />
           </label>
         </div>
-      </fieldset>
-
-      <fieldset className={styles.grupo}>
-        <legend>Diapositivas</legend>
-        <label className={styles.campo}>
-          <span>Archivo PDF o PowerPoint (opcional por ahora)</span>
-          <input name="archivo" type="file" accept={TIPOS} />
-          <small>
-            Hasta {MAX_MB} MB. Puedes enviarlo después, a más tardar el 25 de noviembre.
-          </small>
-        </label>
       </fieldset>
 
       <label className={styles.trampa} aria-hidden="true">

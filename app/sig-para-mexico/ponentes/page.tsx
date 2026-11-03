@@ -5,7 +5,7 @@ import styles from "../seminario.module.css";
 
 export const metadata: Metadata = {
   title: "Ponentes · Seminario SIG para México",
-  description: "Ficha y diapositivas de las ponencias del seminario SIG para México.",
+  description: "Ficha de las ponencias del seminario SIG para México.",
   robots: { index: false, follow: false },
 };
 
@@ -18,6 +18,9 @@ export default function Ponentes() {
           <p className={styles.nota}>
             Con estos datos armamos la ficha de tu ponencia en el sitio del seminario. Las
             fichas se ven en el programa y, después del seminario, junto a la grabación.
+          </p>
+          <p className={styles.nota}>
+            Las diapositivas te las pediremos por correo una semana antes del seminario.
           </p>
           <p className={styles.nota}>Recuerda la estructura de 20 minutos:</p>
           <ol className={styles.listaSimple}>

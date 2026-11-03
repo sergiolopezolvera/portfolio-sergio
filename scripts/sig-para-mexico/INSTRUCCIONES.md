@@ -47,5 +47,5 @@ A quienes se registraron antes, mándales los enlaces desde la hoja (columna Cor
 - Una cuenta personal de Gmail puede enviar unos **100 correos al día** desde Apps Script.
   La función `preparar` imprime cuántos te quedan. Si el registro crece mucho en un día,
   los correos de confirmación fallarán, pero el registro sí se guarda.
-- Archivos de ponentes: hasta **25 MB** (PDF o PowerPoint).
+- Las diapositivas se piden por correo una semana antes; la carpeta **Archivos de ponentes** queda para guardarlas.
 - Si alguien se registra dos veces con el mismo correo, se actualiza su fila en lugar de duplicarla.

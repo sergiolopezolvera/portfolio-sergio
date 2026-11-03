@@ -3,7 +3,7 @@
  *
  * Recibe dos formularios de sergiolopezolvera.com/sig-para-mexico:
  *   - tipo "registro": asistentes → hoja "Registro" + correo de confirmación
- *   - tipo "ponencia": ponentes   → hoja "Ponencias" + archivo en Drive
+ *   - tipo "ponencia": ponentes   → hoja "Ponencias" (acepta archivo opcional en Drive, hoy sin uso)
  *
  * Instalación: ver INSTRUCCIONES.md en esta misma carpeta.
  */
