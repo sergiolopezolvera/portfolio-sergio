@@ -178,6 +178,18 @@
   color: var(--tinta);
 }
 
+.subtitulo {
+  display: block;
+  max-width: 34rem;
+  margin-top: 1.5rem;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  font-stretch: 85%;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--agua-hondo);
+}
+
 .bajada {
   max-width: 32rem;
   margin: 1.75rem 0 0;

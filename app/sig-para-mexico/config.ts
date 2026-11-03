@@ -13,7 +13,7 @@ export const FORMULARIOS_URL = "https://script.google.com/macros/s/AKfycbyRpiaVp
 export const REGISTRO_URL = "/sig-para-mexico/registro";
 
 export const SESIONES = [
-  { id: "2026-11-30", fecha: "Lunes 30 de noviembre", tema: "Agua y medio ambiente" },
+  { id: "2026-11-30", fecha: "Lunes 30 de noviembre", tema: "Residuos sólidos urbanos y agua" },
   { id: "2026-12-01", fecha: "Martes 1 de diciembre", tema: "Riesgos y territorio" },
   { id: "2026-12-02", fecha: "Miércoles 2 de diciembre", tema: "Ciudades y servicios públicos" },
 ];
