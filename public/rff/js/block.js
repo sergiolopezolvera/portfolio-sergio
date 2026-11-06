@@ -547,10 +547,10 @@ function ensureBlockModal() {
     const WATERSHED_FILL_ID  = 'Microwatersheds';
     const WATERSHED_ID_FIELD = 'fid';
 
-    const SUPABASE_URL      = 'https://gtzavlrznijwvsvoxtug.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0emF2bHJ6bmlqd3Zzdm94dHVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1NTU4NTksImV4cCI6MjA5NDEzMTg1OX0.yPFYZIwP6eSUnimETv8k1LbhNNNBIip4Rx04wcXounI';
+    const SUPABASE_URL      = 'https://ffphbjcyglfpglsydxkk.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmcGhiamN5Z2xmcGdsc3lkeGtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU5NzgzNjgsImV4cCI6MjA3MTU1NDM2OH0.xL61RfNW8XXNlzxECQKQ9Qyvmx7TzHDt0UtIS0tTVNI';
 
-    const HOLD_URL     = `${SUPABASE_URL}/functions/v1/hold_block`;
+    const HOLD_URL     = `${SUPABASE_URL}/functions/v1/hold`;
     const CHECKOUT_URL = `${SUPABASE_URL}/functions/v1/create_checkout_session_block`;
 
     const publicUrl = (bucket, key) =>
@@ -772,7 +772,11 @@ function ensureBlockModal() {
             try {
               const holdRes = await fetch(HOLD_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'apikey': SUPABASE_ANON_KEY,
+          },
                 credentials: 'omit',
                 body: JSON.stringify({ id: block.block_id, ttl_minutes: 10 }),
               });
@@ -955,7 +959,11 @@ function ensureBlockModal() {
 
         const checkoutRes = await fetch(CHECKOUT_URL, {
           method:      'POST',
-          headers:     { 'Content-Type': 'application/json' },
+          headers:     {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'apikey': SUPABASE_ANON_KEY,
+          },
           credentials: 'omit',
           body:        JSON.stringify(payload),
         });
