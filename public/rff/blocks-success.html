@@ -3,23 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thank you · Redwood Forest Foundation</title>
+  <title>Thank you | Redwood Forest Foundation</title>
   <link rel="stylesheet" href="/rff/css/site.css" />
 </head>
 <body class="">
   <header class="site-header">
-    <a class="brand" href="/rff">Redwood Forest Foundation</a>
-    <nav><a href="/rff">Home</a><a href="/rff/acres-map">Sponsor an Acre</a><a href="/rff/blocks-map">Sponsor a Microwatershed</a></nav>
+    <div class="inner">
+      <a class="brand" href="/rff" aria-label="Redwood Forest Foundation: sponsorship home">
+        <span class="word">REDWOOD</span><span class="sub">FOREST FOUNDATION</span>
+      </a>
+      <nav class="site-nav" aria-label="Sponsorship"><a href="/rff/acres-map">Sponsor an acre</a><a href="/rff/blocks-map">Sponsor a microwatershed</a></nav>
+      <div class="header-actions">
+        <a class="btn btn-sm btn-outline-rust" href="https://redwoodforests.org/">redwoodforests.org</a>
+      </div>
+    </div>
   </header>
   <main>
-    <section class="container hero">
-      <p class="kicker">Sponsorship confirmed</p>
-      <h1>Thank you for sponsoring a microwatershed</h1>
-      <p>Your support helps protect and restore Standley Creek. A receipt has been sent to your email.</p>
-      <dl class="details"><div><dt>Microwatershed</dt><dd id="sub-basin">Loading…</dd></div><div><dt>Status</dt><dd id="adoption-status">Loading…</dd></div><div><dt>Email</dt><dd id="donor-email">Loading…</dd></div><div><dt>Contribution</dt><dd id="contribution">Loading…</dd></div><div><dt>Payment reference</dt><dd id="payment-reference">Loading…</dd></div><div><dt>Started</dt><dd id="started-at">Loading…</dd></div><div><dt>Renews / expires</dt><dd id="expires-at">Loading…</dd></div></dl>
-      <a class="btn btn-secondary" href="/rff/blocks-map">Back to the map</a>
+    <section class="page">
+      <div class="wrap">
+        <p class="kicker">Sponsorship confirmed</p>
+        <h1 class="display">Thank you for sponsoring a microwatershed</h1>
+        <p class="lede">Your support helps protect and restore Standley Creek. We sent a receipt to your email.</p>
+        <dl class="details"><div><dt>Microwatershed</dt><dd id="sub-basin">Loading…</dd></div><div><dt>Status</dt><dd id="adoption-status">Loading…</dd></div><div><dt>Email</dt><dd id="donor-email">Loading…</dd></div><div><dt>Contribution</dt><dd id="contribution">Loading…</dd></div><div><dt>Payment reference</dt><dd id="payment-reference">Loading…</dd></div><div><dt>Started</dt><dd id="started-at">Loading…</dd></div><div><dt>Renews</dt><dd id="expires-at">Loading…</dd></div></dl>
+        <div class="actions"><a class="btn btn-outline-forest" href="/rff/blocks-map">Back to the map</a></div>
+      </div>
     </section>
   </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div><strong>Redwood Forest Foundation</strong><br>Tax ID #68-0404767 · 501(c)(3) tax-exempt organization</div>
+      <div><a href="https://redwoodforests.org/">redwoodforests.org</a></div>
+    </div>
+  </footer>
   <script type="module" src="/rff/js/blocks-success.js"></script>
 </body>
 </html>
