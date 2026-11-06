@@ -6,18 +6,15 @@
   <title>Microwatershed · Redwood Forest Foundation</title>
   <link rel="stylesheet" href="/rff/css/site.css" />
 </head>
-<body class="">
+<body class="map-page">
   <header class="site-header">
     <a class="brand" href="/rff">Redwood Forest Foundation</a>
     <nav><a href="/rff">Home</a><a href="/rff/acres-map">Sponsor an Acre</a><a href="/rff/blocks-map">Sponsor a Microwatershed</a></nav>
   </header>
   <main>
-    <section class="container hero">
-      <p class="kicker">Sponsor a Microwatershed</p>
-      <h1>Microwatershed</h1>
-      <p>Explore the microwatersheds of Standley Creek on the map to see their data and sponsor one.</p>
-      <a class="btn btn-primary" href="/rff/blocks-map">Explore the map</a>
-    </section>
+    <div id="map-wrapper"></div>
   </main>
+  <script src="/rff/config.js"></script>
+  <script type="module" src="/rff/js/block.js"></script>
 </body>
 </html>
