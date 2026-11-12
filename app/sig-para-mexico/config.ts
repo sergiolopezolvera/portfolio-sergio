@@ -13,6 +13,27 @@ export const FORMULARIOS_URL = "https://script.google.com/macros/s/AKfycbyRpiaVp
 
 export const REGISTRO_URL = "/sig-para-mexico/registro";
 
+// Agregar a tu calendario. Las tres sesiones son días consecutivos de 17:00 a
+// 19:00 en la Ciudad de México (UTC-6, sin horario de verano), por eso se
+// expresan como un evento en UTC que se repite 3 días.
+// El archivo .ics está en public/sig-para-mexico/sig-para-mexico.ics: si
+// cambias fechas o textos aquí, cámbialos también allá.
+export const CALENDARIO_ICS = "/sig-para-mexico/sig-para-mexico.ics";
+const CAL_TITULO = "Seminario SIG para México";
+const CAL_DETALLE =
+  "Seminario virtual con aval académico de CIESAS Golfo. Tres sesiones, del 30 de noviembre al 2 de diciembre, de 17:00 a 19:00 (hora de la Ciudad de México). El enlace para conectarte llega por correo al registrarte en https://sergiolopezolvera.com/sig-para-mexico/registro";
+export const CALENDARIO_GOOGLE =
+  "https://calendar.google.com/calendar/render?" +
+  new URLSearchParams({
+    action: "TEMPLATE",
+    text: CAL_TITULO,
+    dates: "20261130T230000Z/20261201T010000Z",
+    details: CAL_DETALLE,
+    location: "En línea",
+    recur: "RRULE:FREQ=DAILY;COUNT=3",
+    ctz: "America/Mexico_City",
+  }).toString();
+
 export const SESIONES = [
   { id: "2026-11-30", fecha: "Lunes 30 de noviembre", tema: "Residuos sólidos urbanos y agua" },
   { id: "2026-12-01", fecha: "Martes 1 de diciembre", tema: "Riesgos y territorio" },

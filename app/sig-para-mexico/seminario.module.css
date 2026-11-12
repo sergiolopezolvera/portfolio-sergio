@@ -269,6 +269,22 @@
   text-underline-offset: 0.2em;
 }
 
+.calendario {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--tinta-suave);
+}
+
+.calendarioEtiqueta {
+  font-weight: 500;
+}
+
+.calendario a {
+  white-space: nowrap;
+}
+
 /* ── Secciones ──────────────────────────────────────────────── */
 .seccion {
   max-width: 72rem;

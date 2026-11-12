@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import {
   APERTURA,
+  CALENDARIO_GOOGLE,
+  CALENDARIO_ICS,
   CIERRE,
   CIESAS_LOGO,
   CIESAS_LOGO_COMPLETO,
@@ -81,6 +83,21 @@ function Registro({ grande = false }: { grande?: boolean }) {
   );
 }
 
+function Calendario() {
+  return (
+    <p className={styles.calendario}>
+      <span className={styles.calendarioEtiqueta}>Agrega las tres sesiones a tu calendario:</span>{" "}
+      <a href={CALENDARIO_GOOGLE} className={styles.enlace} target="_blank" rel="noopener noreferrer">
+        Google Calendar
+      </a>
+      <span aria-hidden="true"> · </span>
+      <a href={CALENDARIO_ICS} className={styles.enlace} download="sig-para-mexico.ics">
+        Outlook, Apple y otros (.ics)
+      </a>
+    </p>
+  );
+}
+
 function LogoCiesas({ completo = false }: { completo?: boolean }) {
   const src = completo ? CIESAS_LOGO_COMPLETO : CIESAS_LOGO;
   const clase = completo ? styles.logoCompleto : styles.logo;
@@ -154,6 +171,7 @@ export default function SeminarioSIG() {
                 Ver el programa
               </a>
             </div>
+            <Calendario />
           </div>
         </section>
 
@@ -333,6 +351,7 @@ export default function SeminarioSIG() {
             Golfo.
           </p>
           <Registro grande />
+          <Calendario />
         </section>
     </main>
   );

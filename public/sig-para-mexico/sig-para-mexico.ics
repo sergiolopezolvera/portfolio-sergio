@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sergiolopezolvera.com//SIG para Mexico//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seminario-sig-para-mexico-2026@sergiolopezolvera.com
+DTSTAMP:20261112T180000Z
+DTSTART:20261130T230000Z
+DTEND:20261201T010000Z
+RRULE:FREQ=DAILY;COUNT=3
+SUMMARY:Seminario SIG para México
+LOCATION:En línea
+DESCRIPTION:Seminario virtual con aval académico de CIESAS Golfo. Tres ses
+ iones\, del 30 de noviembre al 2 de diciembre\, de 17:00 a 19:00 (hora de 
+ la Ciudad de México). El enlace para conectarte llega por correo al regis
+ trarte en https://sergiolopezolvera.com/sig-para-mexico/registro
+URL:https://sergiolopezolvera.com/sig-para-mexico
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Seminario SIG para México en 30 minutos
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
