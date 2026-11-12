@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import {
-  AGENDA_DIARIA,
+  APERTURA,
+  CIERRE,
   CIESAS_LOGO,
   CIESAS_LOGO_COMPLETO,
   ESTRUCTURA,
   ORGANIZADORES,
+  PONENCIAS,
   REGISTRO_URL,
   SESIONES,
 } from "./config";
@@ -224,8 +226,8 @@ export default function SeminarioSIG() {
             Programa
           </h2>
           <p className={styles.nota}>
-            Cuatro ponencias por sesión. Los nombres de ponentes y títulos se publicarán
-            aquí en cuanto estén confirmados.
+            Cuatro ponencias por sesión, de 20 minutos cada una con espacio para preguntas.
+            Horario del centro de México.
           </p>
 
           <div className={styles.dias}>
@@ -235,12 +237,28 @@ export default function SeminarioSIG() {
                 <h3 className={styles.tema}>{d.tema}</h3>
                 <table className={styles.agenda}>
                   <tbody>
-                    {AGENDA_DIARIA.map((a, i) => (
-                      <tr key={`${d.fecha}-${i}`}>
-                        <th scope="row">{a.hora}</th>
-                        <td>{a.actividad}</td>
+                    <tr>
+                      <th scope="row">{APERTURA.hora}</th>
+                      <td className={styles.actividad}>{APERTURA.actividad}</td>
+                    </tr>
+                    {(PONENCIAS[d.id] ?? []).map((p) => (
+                      <tr key={`${d.id}-${p.hora}`}>
+                        <th scope="row">{p.hora}</th>
+                        {p.confirmada ? (
+                          <td>
+                            <span className={styles.tituloPonencia}>{p.titulo}</span>
+                            <span className={styles.ponente}>{p.ponente}</span>
+                            <span className={styles.afiliacion}>{p.afiliacion}</span>
+                          </td>
+                        ) : (
+                          <td className={styles.porConfirmar}>Ponencia por confirmar</td>
+                        )}
                       </tr>
                     ))}
+                    <tr>
+                      <th scope="row">{CIERRE.hora}</th>
+                      <td className={styles.actividad}>{CIERRE.actividad}</td>
+                    </tr>
                   </tbody>
                 </table>
               </article>
