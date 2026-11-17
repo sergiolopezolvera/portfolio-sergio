@@ -46,6 +46,7 @@ export const CIERRE = { hora: "18:50", actividad: "Preguntas generales y cierre"
 // Ponencias por sesión (la clave es el id de SESIONES).
 // Con confirmada: false, la página muestra "Ponencia por confirmar" en lugar
 // del nombre y el título; cambia a true cuando la persona confirme.
+// Con titulo vacío (""), muestra nombre y afiliación con "Título por confirmar".
 export type Ponencia = {
   hora: string;
   ponente: string;
@@ -102,9 +103,9 @@ export const PONENCIAS: Record<string, Ponencia[]> = {
     },
     {
       hora: "18:00",
-      ponente: "José Antonio Ávalos Lozano",
-      afiliacion: "UASLP / VARICLIM",
-      titulo: "El primer Atlas Dinámico de Riesgos de México: alertar en tiempo real en San Luis Potosí",
+      ponente: "Harmida Rubio Gutiérrez",
+      afiliacion: "Universidad Veracruzana",
+      titulo: "Mapear la violencia contra las mujeres para decidir en el municipio: la cartografía por colonias de Xalapa",
       confirmada: true,
     },
     {
@@ -125,24 +126,24 @@ export const PONENCIAS: Record<string, Ponencia[]> = {
     },
     {
       hora: "17:35",
-      ponente: "Harmida Rubio Gutiérrez",
-      afiliacion: "Universidad Veracruzana",
-      titulo: "Mapear la violencia contra las mujeres para decidir en el municipio: la cartografía por colonias de Xalapa",
-      confirmada: false,
+      ponente: "Edgar Mora Damián",
+      afiliacion: "IMPLAN Morelia",
+      titulo: "", // pendiente: lo entrega a más tardar el viernes 20 de noviembre
+      confirmada: true,
     },
     {
       hora: "18:00",
       ponente: "Hennessy Amor Becerra Ayala",
       afiliacion: "IIEG Jalisco",
-      titulo: "Del siniestro al mapa: SiniestraliMap y MapaLab para decidir dónde intervenir en la ciudad",
+      titulo: "Del siniestro al mapa: SiniestraliMap y MapaLab para decidir dónde intervenir en el territorio",
       confirmada: true,
     },
     {
       hora: "18:25",
-      ponente: "Yunive Moreno Sánchez",
-      afiliacion: "Visor Urbano, Jalisco",
-      titulo: "El mapa que decide trámites: catastro multipropósito y licencias en línea con Visor Urbano",
-      confirmada: false,
+      ponente: "José Antonio Ávalos Lozano",
+      afiliacion: "UASLP / VARICLIM",
+      titulo: "El primer Atlas Dinámico de Riesgos de México: alertar en tiempo real en San Luis Potosí",
+      confirmada: true,
     },
   ],
 };
