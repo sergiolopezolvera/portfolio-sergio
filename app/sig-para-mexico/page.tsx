@@ -264,7 +264,13 @@ export default function SeminarioSIG() {
                         <th scope="row">{p.hora}</th>
                         {p.confirmada ? (
                           <td>
-                            <span className={styles.tituloPonencia}>{p.titulo}</span>
+                            {p.titulo ? (
+                              <span className={styles.tituloPonencia}>{p.titulo}</span>
+                            ) : (
+                              <span className={`${styles.tituloPonencia} ${styles.porConfirmar}`}>
+                                Título por confirmar
+                              </span>
+                            )}
                             <span className={styles.ponente}>{p.ponente}</span>
                             <span className={styles.afiliacion}>{p.afiliacion}</span>
                           </td>
